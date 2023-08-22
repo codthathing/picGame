@@ -59,9 +59,6 @@ body {
     right: 0;
     margin: auto;
     background-color: white;
-    width: 85%;
-    padding: 1rem 2rem 2rem 2rem;
-    border-radius: 2.5rem 2.5rem 0 0;
     border: hidden;
     top: 100%;
 }
@@ -79,15 +76,12 @@ body {
 
 #resText {
     color: black;
-    font-size: 1.5rem;
     text-align: center;
     font-style: italic;
 }
 
 #canRes {
     margin-left: 90%;
-    font-size: 2.5rem;
-    margin-top: 2rem;
     color: rgba(0, 0, 0, 0.5);
 }
 
@@ -96,8 +90,6 @@ body {
     right: 0;
     background-color: black;
     color: white;
-    font-size: 1.25rem;
-    padding: 0.25rem 0.5rem;
 }
 
 #introDiv {
@@ -107,10 +99,11 @@ body {
     top: 0;
     background-color: rgba(0, 0, 0, 0.15);
     z-index: 100;
+    display: none;
 }
 
 #introDiv.showIntroDiv {
-    display: none;
+    display: block;
 }
 
 #introTextDiv {
@@ -120,10 +113,10 @@ body {
     top: 100%;
     margin: auto;
     background-color: white;
-    width: 85%;
-    padding: 2rem;
-    border-radius: 2.5rem 2.5rem 0 0;
     border: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #introTextDiv.showIntroTextDiv {
@@ -138,7 +131,6 @@ body {
 }
 
 #introText {
-    font-size: 1.5rem;
     text-align: center;
     font-style: italic;
 }
@@ -158,8 +150,38 @@ body {
     }
 
     .result {
-        font-size: 1.5rem;
+        font-size: 1rem;
         margin: 1rem 0;
+    }
+
+    #resTextDiv {
+        width: 85%;
+        padding: 1rem 2rem 2rem 2rem;
+        border-radius: 2.5rem 2.5rem 0 0;
+    }
+
+    #resText {
+        font-size: 1rem;
+    }
+
+    #canRes {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .imgPos {
+        font-size: 1rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    #introTextDiv {
+        width: 85%;
+        padding: 1rem 2rem 2rem 2rem;
+        border-radius: 2.5rem 2.5rem 0 0;
+    }
+
+    #introText {
+        font-size: 1rem;
     }
 }
 
@@ -183,6 +205,36 @@ body {
     .result {
         font-size: 2rem;
         margin: 1.5rem 0;
+    }
+
+    #resTextDiv {
+        width: 85%;
+        padding: 1rem 2rem 2rem 2rem;
+        border-radius: 2.5rem 2.5rem 0 0;
+    }
+
+    #resText {
+        font-size: 1rem;
+    }
+
+    #canRes {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .imgPos {
+        font-size: 1rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    #introTextDiv {
+        width: 85%;
+        padding: 1rem 2rem 2rem 2rem;
+        border-radius: 2.5rem 2.5rem 0 0;
+    }
+
+    #introText {
+        font-size: 1rem;
     }
 }
 
@@ -210,5 +262,35 @@ body {
     .result {
         font-size: 1.5rem;
         margin: 1rem 0;
+    }
+
+    #resTextDiv {
+        width: 85%;
+        padding: 1rem 2rem 2rem 2rem;
+        border-radius: 2.5rem 2.5rem 0 0;
+    }
+
+    #resText {
+        font-size: 1rem;
+    }
+
+    #canRes {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .imgPos {
+        font-size: 1rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    #introTextDiv {
+        width: 85%;
+        padding: 1rem 2rem 2rem 2rem;
+        border-radius: 2.5rem 2.5rem 0 0;
+    }
+
+    #introText {
+        font-size: 1rem;
     }
 }
