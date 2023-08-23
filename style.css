@@ -65,22 +65,22 @@ body {
     position: absolute;
     left: 0;
     right: 0;
+    bottom: 0;
+    opacity: 0;
     margin: auto;
     background-color: white;
     border: hidden;
-    top: 100%;
     border-radius: 2.5rem 2.5rem 0 0;
 }
 
 #resTextDiv.showTextDiv {
-    top: auto;
-    bottom: 0;
-    animation: showRes 500ms linear;
+    opacity: 1;
+    animation: showRes 500ms linear 1;
 }
 
 @keyframes showRes {
-    from {top: 100%;}
-    to {top: auto; bottom: 0;}
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 #resText {
@@ -121,7 +121,8 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    top: 100%;
+    bottom: 0;
+    opacity: 0;
     margin: auto;
     background-color: white;
     border: hidden;
@@ -132,14 +133,13 @@ body {
 }
 
 #introTextDiv.showIntroTextDiv {
-    top: auto;
-    bottom: 0;
-    animation: showIntro 500ms linear;
+    opacity: 1;
+    animation: showIntro 500ms linear 1;
 }
 
 @keyframes showIntro {
-    from {top: 100%;}
-    to {bottom: 0; top: auto;}
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 #introText {
@@ -287,7 +287,7 @@ body {
 
     #resTextDiv {
         width: 50%;
-        padding: 1rem 2rem 4rem 2rem;
+        padding: 0 2rem 2.5rem 2rem;
     }
 
     #resText {
@@ -296,7 +296,7 @@ body {
 
     #canRes {
         font-size: 2.5rem;
-        margin-top: 4rem;
+        margin-top: 1.5rem;
     }
 
     .imgPos {
@@ -306,7 +306,7 @@ body {
 
     #introTextDiv {
         width: 50%;
-        padding: 4rem 2rem;
+        padding: 2.75rem 2rem;
     }
 
     #introText {
