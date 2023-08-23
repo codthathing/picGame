@@ -1,6 +1,30 @@
-let pictures =["../IMAGE/tunnel.jpg","../IMAGE/unique.jpg","../IMAGE/board1.jpeg",
-    "../IMAGE/laptop_imp.jpg","../IMAGE/project.jpg","../IMAGE/board4.jpeg",
-    // "../IMAGE/calculator.jpg","../IMAGE/birthday.jpg","../IMAGE/services.jpeg"
+let picDetails = [
+    {
+        name: 'Animals',
+        pics:["images/Animals/bears.jpg","images/Animals/birds.jpg","images/Animals/dogs.jpeg",
+            "images/Animals/horses.jpg","images/Animals/lions.jpg","images/Animals/sharks.jpg"]
+    },    
+    {
+        name: 'Cars',
+        pics:["images/Cars/car1.jpg","images/Cars/car2.jpeg","images/Cars/car3.jpeg",
+            "images/Cars/car4.jpeg","images/Cars/car5.jpeg","images/Cars/car6.jpg"]
+    },    
+    {
+        name: 'Flowers',
+        pics:["images/Flowers/Chrysanthemum.jpeg","images/Flowers/iris.jpeg","images/Flowers/lotus.jpeg",
+            "images/Flowers/orchid.jpeg","images/Flowers/rose.jpeg","images/Flowers/tulip.jpeg"]
+    },    
+    {
+        name: 'Places',
+        pics:["images/Places/bali.jpeg","images/Places/canyon.jpeg","images/Places/london.jpeg",
+            "images/Places/newyork.jpeg","images/Places/paris.jpeg","images/Places/rome.jpeg"]
+    },    
+    {
+        name: 'Teams',
+        pics:["images/Teams/barcelona-logo.png","images/Teams/bayern_munich-logo.png",
+            "images/Teams/chelsea-logo.png","images/Teams/juventus-logo.png",
+            "images/Teams/PSG-logo.png","images/Teams/real_madrid-logo.png"]
+    },
 ]
 
 let introFromSession = sessionStorage.getItem("introSeen")
@@ -46,7 +70,6 @@ if(!introFromSession) {
             document.getElementById("introDiv").classList.remove("showIntroDiv")
         }, 11000)
     })
-
 }
 
 document.getElementById("canRes").addEventListener("click", ()=> {
@@ -110,11 +133,17 @@ showImgPos("img-box7", posClicked[6], "entBox7")
 showImgPos("img-box8", posClicked[7], "entBox8")
 showImgPos("img-box9", posClicked[8], "entBox9")
 
+let picDetGen = picDetails[Math.floor(Math.random() * 5)]
+document.getElementById("gamePlayed").innerHTML = picDetGen.name
+
 function genImg(id, clicked) {
-    document.getElementById(id).addEventListener("click", (e) => {
+    document.getElementById(id).addEventListener("click", () => {
         if(clicked) {
-            e.target.src = `${pictures[Math.floor(Math.random() * 6)]}`
-            loadImg.push(e.target.src)
+            let imagesGen = picDetGen.pics[Math.floor(Math.random() * 6)]
+            let imgGenerated = ``
+            imgGenerated = `<img src="${imagesGen}" class="main-img" alt="">`
+            document.getElementById(id).innerHTML = imgGenerated
+            loadImg.push(imagesGen)
             clicked = false
             for(let x=0; x<loadImg.length; x++) {
                 if(x === 1) {
@@ -155,12 +184,12 @@ function genImg(id, clicked) {
     })
 }
 
-genImg("one", allClicked[0])
-genImg("two", allClicked[1])
-genImg("three", allClicked[2])
-genImg("four", allClicked[3])
-genImg("five", allClicked[4])
-genImg("six", allClicked[5])
-genImg("seven", allClicked[6])
-genImg("eigth", allClicked[7])
-genImg("nine", allClicked[8])
+genImg("entImgBox1", allClicked[0])
+genImg("entImgBox2", allClicked[1])
+genImg("entImgBox3", allClicked[2])
+genImg("entImgBox4", allClicked[3])
+genImg("entImgBox5", allClicked[4])
+genImg("entImgBox6", allClicked[5])
+genImg("entImgBox7", allClicked[6])
+genImg("entImgBox8", allClicked[7])
+genImg("entImgBox9", allClicked[8])

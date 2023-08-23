@@ -13,6 +13,10 @@ body {
     padding: 1rem;
 }
 
+#gamePlayed {
+    text-align: center;
+}
+
 .img-box {
     background-color: white;
     position: relative;
@@ -23,10 +27,14 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.entImgBox {
+    width: 100%;
+    height: 100%;
+}
+
 .main-img {
     width: 100%;
     height: 100%;
-    /* visibility: hidden; */
 }
 
 .main-img.visImg {
@@ -61,17 +69,18 @@ body {
     background-color: white;
     border: hidden;
     top: 100%;
+    border-radius: 2.5rem 2.5rem 0 0;
 }
 
 #resTextDiv.showTextDiv {
-    top: 82.5%;
+    top: auto;
     bottom: 0;
     animation: showRes 500ms linear;
 }
 
 @keyframes showRes {
     from {top: 100%;}
-    to {top: 82.5%; bottom: 0;}
+    to {top: auto; bottom: 0;}
 }
 
 #resText {
@@ -83,6 +92,8 @@ body {
 #canRes {
     margin-left: 90%;
     color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .imgPos {
@@ -117,17 +128,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 2.5rem 2.5rem 0 0;
 }
 
 #introTextDiv.showIntroTextDiv {
-    top: 80%;
+    top: auto;
     bottom: 0;
     animation: showIntro 500ms linear;
 }
 
 @keyframes showIntro {
     from {top: 100%;}
-    to {bottom: 0; top: 80%;}
+    to {bottom: 0; top: auto;}
 }
 
 #introText {
@@ -140,6 +152,10 @@ body {
 
 
 @media all and (max-width: 767px) {
+    #gamePlayed {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
 
     #container {
         grid-gap: 0.5rem;
@@ -156,8 +172,7 @@ body {
 
     #resTextDiv {
         width: 85%;
-        padding: 1rem 2rem 2rem 2rem;
-        border-radius: 2.5rem 2.5rem 0 0;
+        padding: 0 2rem 2.5rem 2rem;
     }
 
     #resText {
@@ -176,8 +191,7 @@ body {
 
     #introTextDiv {
         width: 85%;
-        padding: 1rem 2rem 2rem 2rem;
-        border-radius: 2.5rem 2.5rem 0 0;
+        padding: 2.5rem 2rem;
     }
 
     #introText {
@@ -189,17 +203,21 @@ body {
 
 
 @media all and (min-width: 768px) and (max-width: 1023px) {
+    #gamePlayed {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
 
     #body {
         padding: 2rem;
     }
 
     #container {
-        grid-gap: 1rem;
+        grid-gap: 1.5rem;
     }
 
     .img-box {
-        height: 12rem;
+        height: 10rem;
     }
 
     .result {
@@ -209,32 +227,30 @@ body {
 
     #resTextDiv {
         width: 85%;
-        padding: 1rem 2rem 2rem 2rem;
-        border-radius: 2.5rem 2.5rem 0 0;
+        padding: 0 2rem 4rem 2rem;
     }
 
     #resText {
-        font-size: 1rem;
+        font-size: 2rem;
     }
 
     #canRes {
-        font-size: 2.5rem;
-        margin-top: 2rem;
+        font-size: 4rem;
+        margin-top: 4rem;
     }
 
     .imgPos {
-        font-size: 1rem;
-        padding: 0.25rem 0.5rem;
+        font-size: 2rem;
+        padding: 0.5rem 0.75rem;
     }
 
     #introTextDiv {
         width: 85%;
-        padding: 1rem 2rem 2rem 2rem;
-        border-radius: 2.5rem 2.5rem 0 0;
+        padding: 4rem 2rem;
     }
 
     #introText {
-        font-size: 1rem;
+        font-size: 2rem;
     }
 }
 
@@ -242,13 +258,18 @@ body {
 
 
 @media all and (min-width: 1024px) {
+    #gamePlayed {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
 
     #body {
         position: absolute;
-        width: 50%;
+        width: 35%;
         left: 0;
         right: 0;
         margin: auto;
+        padding-top: 1rem;
     }
 
     #container {
@@ -256,18 +277,17 @@ body {
     }
 
     .img-box {
-        height: 8rem;
+        height:7.5rem;
     }
 
     .result {
-        font-size: 1.5rem;
+        font-size: 1rem;
         margin: 1rem 0;
     }
 
     #resTextDiv {
-        width: 85%;
-        padding: 1rem 2rem 2rem 2rem;
-        border-radius: 2.5rem 2.5rem 0 0;
+        width: 50%;
+        padding: 1rem 2rem 4rem 2rem;
     }
 
     #resText {
@@ -276,18 +296,17 @@ body {
 
     #canRes {
         font-size: 2.5rem;
-        margin-top: 2rem;
+        margin-top: 4rem;
     }
 
     .imgPos {
-        font-size: 1rem;
+        font-size: 1.25rem;
         padding: 0.25rem 0.5rem;
     }
 
     #introTextDiv {
-        width: 85%;
-        padding: 1rem 2rem 2rem 2rem;
-        border-radius: 2.5rem 2.5rem 0 0;
+        width: 50%;
+        padding: 4rem 2rem;
     }
 
     #introText {
