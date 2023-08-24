@@ -65,22 +65,27 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
     opacity: 0;
     margin: auto;
     background-color: white;
     border: hidden;
     border-radius: 2.5rem 2.5rem 0 0;
+    height: fit-content;
+    will-change: top, opacity;
 }
 
 #resTextDiv.showTextDiv {
+    bottom: 0;
     opacity: 1;
     animation: showRes 500ms linear 1;
 }
 
 @keyframes showRes {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    0% {opacity: 0;}
+    25% {opacity: 0.25;}
+    50% {opacity: 0.5;}
+    75% {opacity: 0.75;}
+    100%{opacity: 1;}
 }
 
 #resText {
@@ -121,7 +126,6 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
     opacity: 0;
     margin: auto;
     background-color: white;
@@ -129,17 +133,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: fit-content;
     border-radius: 2.5rem 2.5rem 0 0;
+    will-change: top, opacity;
 }
 
 #introTextDiv.showIntroTextDiv {
+    bottom: 0;
     opacity: 1;
     animation: showIntro 500ms linear 1;
 }
 
 @keyframes showIntro {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    0% {opacity: 0;}
+    25% {opacity: 0.25;}
+    50% {opacity: 0.5;}
+    75% {opacity: 0.75;}
+    100%{opacity: 1;}
 }
 
 #introText {

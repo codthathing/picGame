@@ -64,7 +64,7 @@ if(!introFromSession) {
                         }
                     }, 120)
                 }
-            }, 250)
+            }, 550)
         }, 250)
         setTimeout(()=> {
             document.getElementById("introDiv").classList.remove("showIntroDiv")
