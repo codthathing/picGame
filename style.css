@@ -54,28 +54,25 @@ body {
     top: 0;
     background-color: rgba(0, 0, 0, 0.15);
     display: none;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 #resDiv.showResDiv {
-    display: block;
+    display: flex;
     z-index: 100;
 }
 
 #resTextDiv {
-    position: absolute;
-    left: 0;
-    right: 0;
     opacity: 0;
-    margin: auto;
     background-color: white;
     border: hidden;
     border-radius: 2.5rem 2.5rem 0 0;
     height: fit-content;
-    will-change: top, opacity;
+    will-change: opacity;
 }
 
 #resTextDiv.showTextDiv {
-    bottom: 0;
     opacity: 1;
     animation: showRes 500ms linear 1;
 }
@@ -116,18 +113,16 @@ body {
     background-color: rgba(0, 0, 0, 0.15);
     z-index: 100;
     display: none;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 #introDiv.showIntroDiv {
-    display: block;
+    display: flex;
 }
 
 #introTextDiv {
-    position: absolute;
-    left: 0;
-    right: 0;
     opacity: 0;
-    margin: auto;
     background-color: white;
     border: hidden;
     display: flex;
@@ -135,11 +130,10 @@ body {
     justify-content: center;
     height: fit-content;
     border-radius: 2.5rem 2.5rem 0 0;
-    will-change: top, opacity;
+    will-change: opacity;
 }
 
 #introTextDiv.showIntroTextDiv {
-    bottom: 0;
     opacity: 1;
     animation: showIntro 500ms linear 1;
 }
