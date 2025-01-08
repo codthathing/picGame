@@ -115,6 +115,7 @@ body {
     display: none;
     align-items: flex-end;
     justify-content: center;
+    overflow-y: auto;
 }
 
 #introDiv.showIntroDiv {
