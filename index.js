@@ -1,29 +1,29 @@
 let picDetails = [
   {
     name: 'Animals',
-    pics: ["images/Animals/bears.jpg", "images/Animals/birds.jpg", "images/Animals/dogs.jpeg",
-      "images/Animals/horses.jpg", "images/Animals/lions.jpg", "images/Animals/sharks.jpg"]
+    pics: ["images/Animals/bears.webp", "images/Animals/birds.webp", "images/Animals/dogs.webp",
+      "images/Animals/horses.webp", "images/Animals/lions.webp", "images/Animals/sharks.webp"]
   },
   {
     name: 'Cars',
-    pics: ["images/Cars/car1.jpg", "images/Cars/car2.jpeg", "images/Cars/car3.jpeg",
-      "images/Cars/car4.jpeg", "images/Cars/car5.jpeg", "images/Cars/car6.jpg"]
+    pics: ["images/Cars/car1.webp", "images/Cars/car2.webp", "images/Cars/car3.webp",
+      "images/Cars/car4.webp", "images/Cars/car5.webp", "images/Cars/car6.webp"]
   },
   {
     name: 'Flowers',
-    pics: ["images/Flowers/Chrysanthemum.jpeg", "images/Flowers/iris.jpeg", "images/Flowers/lotus.jpeg",
-      "images/Flowers/orchid.jpeg", "images/Flowers/rose.jpeg", "images/Flowers/tulip.jpeg"]
+    pics: ["images/Flowers/Chrysanthemum.webp", "images/Flowers/iris.webp", "images/Flowers/lotus.webp",
+      "images/Flowers/orchid.webp", "images/Flowers/rose.webp", "images/Flowers/tulip.webp"]
   },
   {
     name: 'Places',
-    pics: ["images/Places/bali.jpeg", "images/Places/canyon.jpeg", "images/Places/london.jpeg",
-      "images/Places/newyork.jpeg", "images/Places/paris.jpeg", "images/Places/rome.jpeg"]
+    pics: ["images/Places/bali.webp", "images/Places/canyon.webp", "images/Places/london.webp",
+      "images/Places/newyork.webp", "images/Places/paris.webp", "images/Places/rome.webp"]
   },
   {
     name: 'Teams',
-    pics: ["images/Teams/barcelona-logo.png", "images/Teams/bayern_munich-logo.png",
-      "images/Teams/chelsea-logo.png", "images/Teams/juventus-logo.png",
-      "images/Teams/PSG-logo.png", "images/Teams/real_madrid-logo.png"]
+    pics: ["images/Teams/barcelona-logo.webp", "images/Teams/bayern_munich-logo.webp",
+      "images/Teams/chelsea-logo.webp", "images/Teams/juventus-logo.webp",
+      "images/Teams/PSG-logo.webp", "images/Teams/real_madrid-logo.webp"]
   },
 ]
 // sessionStorage.clear();
