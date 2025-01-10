@@ -27,15 +27,14 @@ let picDetails = [
   },
 ]
 // sessionStorage.clear();
-function conText(words, id, colors) {
+function conText(words) {
   document.getElementById("introDiv").classList.add("showIntroDiv");
   document.getElementById("introTextDiv").classList.add("showIntroTextDiv");
 
-  if (colors === undefined) colors = "#990000"; // If the solors section is undefined
   let countLetter = 1;
-  const target = document.getElementById(id);
+  const target = document.getElementById("introTextDiv");
 
-  target.setAttribute("style", "color:" + colors);
+  target.setAttribute("style", "color: " + "black");
   const addLetterInterval = setInterval(() => {
     if (countLetter <= words.length) {
       target.innerHTML = words.substring(0, countLetter);
@@ -44,21 +43,16 @@ function conText(words, id, colors) {
       clearInterval(addLetterInterval);
       setTimeout(() => {
         document.getElementById("introDiv").classList.remove("showIntroDiv");
-      }, 500);
+      }, 1000);
     };
   }, 150); // The time taken to write each letter, symbol, and space.
 };
 
 let introFromSession = sessionStorage.getItem("introSeen") || false;
 setTimeout(() => {
-  if (!introFromSession) { conText("You choose 2 boxes that display same or different images, 4 times per set.", "introTextDiv", "black") };
+  if (!introFromSession) { conText("You choose 2 boxes that display same or different images, 4 times per set.") };
   sessionStorage.setItem("introSeen", true);
 }, 500); // The seconds taken to start writing the text.
-
-document.getElementById("canRes").addEventListener("click", () => {
-  document.getElementById("resDiv").classList.remove("showResDiv")
-  window.location.reload();
-})
 
 let loadImg = []
 let totalScore = []
@@ -149,16 +143,12 @@ function genImg(id, clicked) {
             let pass = Number(document.getElementById("pass").textContent)
             let fail = Number(document.getElementById("fail").textContent)
             if (pass > fail) {
-              document.getElementById("resText").innerHTML = "You passed this set."
+              conText("You passed this set.");
             } else if (fail > pass) {
-              document.getElementById("resText").innerHTML = "You failed this set."
+              conText("You failed this set.");
             } else {
-              document.getElementById("resText").innerHTML = "You tied this set."
+              conText("You tied this set.");
             }
-            document.getElementById("resDiv").classList.add("showResDiv")
-            setTimeout(() => {
-              document.getElementById("resTextDiv").classList.add("showTextDiv")
-            }, 250)
           }, 100)
         }
       }
