@@ -79,10 +79,10 @@ function conText(words) {
 
 let introFromSession = sessionStorage.getItem("introSeen") || false;
 if (!introFromSession) {
-  setTimeout(() => {
+  // setTimeout(() => {
     conText("You choose 2 boxes that display same or different images, 4 times per set.");
     sessionStorage.setItem("introSeen", true);
-  }, 500);
+  // }, 500);
 };
 
 let loadImg = [];
