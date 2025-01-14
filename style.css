@@ -14,18 +14,12 @@ body {
 }
 
 .img-box {
-  background-color: white;
   position: relative;
 }
 
 #container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-}
-
-.entImgBox {
-  width: 100%;
-  height: 100%;
 }
 
 .main-img {

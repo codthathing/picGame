@@ -1,62 +1,67 @@
 let picDetails = [
   {
+    id: 0,
     name: "Animals",
     pics: [
-      "images/Animals/bears.webp",
-      "images/Animals/birds.webp",
-      "images/Animals/dogs.webp",
-      "images/Animals/horses.webp",
-      "images/Animals/lions.webp",
-      "images/Animals/sharks.webp",
+      { id: 0, clicked: false, image: "images/Animals/bears.webp", position: 0 },
+      { id: 1, clicked: false, image: "images/Animals/birds.webp", position: 0 },
+      { id: 2, clicked: false, image: "images/Animals/dogs.webp", position: 0 },
+      { id: 3, clicked: false, image: "images/Animals/horses.webp", position: 0 },
+      { id: 4, clicked: false, image: "images/Animals/lions.webp", position: 0 },
+      { id: 5, clicked: false, image: "images/Animals/sharks.webp", position: 0 },
     ],
   },
   {
+    id: 1,
     name: "Cars",
     pics: [
-      "images/Cars/car1.webp",
-      "images/Cars/car2.webp",
-      "images/Cars/car3.webp",
-      "images/Cars/car4.webp",
-      "images/Cars/car5.webp",
-      "images/Cars/car6.webp",
+      { id: 0, clicked: false, image: "images/Cars/car1.webp", position: 0 },
+      { id: 1, clicked: false, image: "images/Cars/car2.webp", position: 0 },
+      { id: 2, clicked: false, image: "images/Cars/car3.webp", position: 0 },
+      { id: 3, clicked: false, image: "images/Cars/car4.webp", position: 0 },
+      { id: 4, clicked: false, image: "images/Cars/car5.webp", position: 0 },
+      { id: 5, clicked: false, image: "images/Cars/car6.webp", position: 0 },
     ],
   },
   {
+    id: 2,
     name: "Flowers",
     pics: [
-      "images/Flowers/Chrysanthemum.webp",
-      "images/Flowers/iris.webp",
-      "images/Flowers/lotus.webp",
-      "images/Flowers/orchid.webp",
-      "images/Flowers/rose.webp",
-      "images/Flowers/tulip.webp",
+      { id: 0, clicked: false, image: "images/Flowers/Chrysanthemum.webp", position: 0 },
+      { id: 1, clicked: false, image: "images/Flowers/iris.webp", position: 0 },
+      { id: 2, clicked: false, image: "images/Flowers/lotus.webp", position: 0 },
+      { id: 3, clicked: false, image: "images/Flowers/orchid.webp", position: 0 },
+      { id: 4, clicked: false, image: "images/Flowers/rose.webp", position: 0 },
+      { id: 5, clicked: false, image: "images/Flowers/tulip.webp", position: 0 },
     ],
   },
   {
+    id: 3,
     name: "Places",
     pics: [
-      "images/Places/bali.webp",
-      "images/Places/canyon.webp",
-      "images/Places/london.webp",
-      "images/Places/newyork.webp",
-      "images/Places/paris.webp",
-      "images/Places/rome.webp",
+      { id: 0, clicked: false, image: "images/Places/bali.webp", position: 0 },
+      { id: 1, clicked: false, image: "images/Places/canyon.webp", position: 0 },
+      { id: 2, clicked: false, image: "images/Places/london.webp", position: 0 },
+      { id: 3, clicked: false, image: "images/Places/newyork.webp", position: 0 },
+      { id: 4, clicked: false, image: "images/Places/paris.webp", position: 0 },
+      { id: 5, clicked: false, image: "images/Places/rome.webp", position: 0 },
     ],
   },
   {
+    id: 4,
     name: "Teams",
     pics: [
-      "images/Teams/barcelona-logo.webp",
-      "images/Teams/bayern_munich-logo.webp",
-      "images/Teams/chelsea-logo.webp",
-      "images/Teams/juventus-logo.webp",
-      "images/Teams/PSG-logo.webp",
-      "images/Teams/real_madrid-logo.webp",
+      { id: 0, clicked: false, image: "images/Teams/barcelona-logo.webp", position: 0 },
+      { id: 1, clicked: false, image: "images/Teams/bayern_munich-logo.webp", position: 0 },
+      { id: 2, clicked: false, image: "images/Teams/chelsea-logo.webp", position: 0 },
+      { id: 3, clicked: false, image: "images/Teams/juventus-logo.webp", position: 0 },
+      { id: 4, clicked: false, image: "images/Teams/PSG-logo.webp", position: 0 },
+      { id: 5, clicked: false, image: "images/Teams/real_madrid-logo.webp", position: 0 },
     ],
   },
 ];
 // sessionStorage.clear();
-function conText(words) {
+function conText(words, calFunction) {
   document.getElementById("introDiv").classList.add("showIntroDiv");
   document.getElementById("introTextDiv").classList.add("showIntroTextDiv");
 
@@ -72,6 +77,7 @@ function conText(words) {
       clearInterval(addLetterInterval);
       setTimeout(() => {
         document.getElementById("introDiv").classList.remove("showIntroDiv");
+        calFunction();
       }, 1000);
     }
   }, 150); // The time taken to write each letter, symbol, and space.
@@ -83,119 +89,81 @@ if (!introFromSession) {
     conText("You choose 2 boxes that display same or different images, 4 times per set.");
     sessionStorage.setItem("introSeen", true);
   }, 500);
-};
-
-let loadImg = [];
-let totalScore = [];
-let allClicked = [true, true, true, true, true, true, true, true, true];
-let posArray = [];
-let posNum = "";
-let posClicked = [true, true, true, true, true, true, true, true, true];
-
-let x = 0;
-function addPass() {
-  x += 1;
-  return x;
-}
-let y = 0;
-function addFail() {
-  y += 1;
-  return y;
 }
 
-function posBox(idEnt, pos) {
-  let posbox = ``;
-  posbox = `
-        <i class="imgPos">${pos}</i>
-    `;
-  document.getElementById(idEnt).innerHTML += posbox;
-}
-function showImgPos(id, clicked, idEnt) {
-  document.getElementById(id).addEventListener("click", () => {
-    if (clicked) {
-      posArray.push(posArray.length);
-      clicked = false;
-      for (let x = 0; x < posArray.length; x++) {
-        if (x <= 1) {
-          posNum = 1;
-        }
-        if (x <= 3 && x >= 2) {
-          posNum = 2;
-        }
-        if (x <= 5 && x >= 4) {
-          posNum = 3;
-        }
-        if (x <= 7 && x >= 6) {
-          posNum = 4;
-        }
-      }
-      posBox(idEnt, posNum);
+let passDiv = document.getElementById("pass");
+let failDiv = document.getElementById("fail");
+
+function playGame() {
+  let generatedGameArray = [];
+  let gameDetailsCount = { played: 0, correct: 0, wrong: 0, comparison: [], result: "" };
+  passDiv.innerHTML = gameDetailsCount.correct;
+  failDiv.innerHTML = gameDetailsCount.wrong;
+
+  function generateGameDetails() {
+    const generateRandomNumber = Math.floor(Math.random() * 5);
+    const { name, pics } = picDetails.find((game) => game.id === generateRandomNumber);
+    document.getElementById("gamePlayed").innerHTML = name;
+    for (let i = 0; i < 9; i++) {
+      const generateNumber = Math.floor(Math.random() * 6);
+      const { clicked, image } = pics.find((picture) => picture.id === generateNumber);
+      generatedGameArray.push({ id: i, clicked, image });
     }
-  });
-}
-showImgPos("img-box1", posClicked[0], "entBox1");
-showImgPos("img-box2", posClicked[1], "entBox2");
-showImgPos("img-box3", posClicked[2], "entBox3");
-showImgPos("img-box4", posClicked[3], "entBox4");
-showImgPos("img-box5", posClicked[4], "entBox5");
-showImgPos("img-box6", posClicked[5], "entBox6");
-showImgPos("img-box7", posClicked[6], "entBox7");
-showImgPos("img-box8", posClicked[7], "entBox8");
-showImgPos("img-box9", posClicked[8], "entBox9");
+    createGameDivs(generatedGameArray);
+  }
+  generateGameDetails();
 
-let picDetGen = picDetails[Math.floor(Math.random() * 5)];
-document.getElementById("gamePlayed").innerHTML = picDetGen.name;
+  function createGameDivs(gameArray) {
+    document.getElementById("container").innerHTML = gameArray
+      .map(({ id, clicked, image, position }) => {
+        return `
+        <div class="img-box" onclick="updateGeneratedGameArray(${id}, '${image}', ${clicked})" style="background: ${clicked ? `url('${image}')` : "white"}; background-repeat: no-repeat; background-position: center; background-size: cover;">
+          ${clicked ? `<span class="imgPos">${position}</span>` : ""}
+        </div>
+      `;
+      })
+      .join("");
+  }
 
-function genImg(id, clicked) {
-  document.getElementById(id).addEventListener("click", () => {
-    if (clicked) {
-      let imagesGen = picDetGen.pics[Math.floor(Math.random() * 6)];
-      let imgGenerated = ``;
-      imgGenerated = `<img src="${imagesGen}" class="main-img" alt="">`;
-      document.getElementById(id).innerHTML = imgGenerated;
-      loadImg.push(imagesGen);
-      clicked = false;
-      for (let x = 0; x < loadImg.length; x++) {
-        if (x === 1) {
-          if (loadImg[0] === loadImg[1]) {
-            let x = 0;
-            x += 1;
-            totalScore.push(x);
-            document.getElementById("pass").innerHTML = addPass();
-          } else if (loadImg[0] !== loadImg[1]) {
-            let x = 0;
-            x += 1;
-            totalScore.push(x);
-            document.getElementById("fail").innerHTML = addFail();
-          }
-          loadImg = [];
+  window.updateGeneratedGameArray = function (id, image, clicked) {
+    if (gameDetailsCount.played < 4) {
+      generatedGameArray = generatedGameArray.map((game) => {
+        if (game.id === id && game.clicked !== true) {
+          return { ...game, clicked: true, position: gameDetailsCount.played + 1 };
+        } else {
+          return game;
         }
-      }
-      for (let x = 0; x < totalScore.length; x++) {
-        if (x === 3) {
-          setTimeout(() => {
-            let pass = Number(document.getElementById("pass").textContent);
-            let fail = Number(document.getElementById("fail").textContent);
-            if (pass > fail) {
-              conText("You passed this set.");
-            } else if (fail > pass) {
-              conText("You failed this set.");
-            } else {
-              conText("You tied this set.");
-            }
-          }, 100);
-        }
-      }
+      });
+      determineGameOutcome(image, clicked);
+      createGameDivs(generatedGameArray);
     }
-  });
+
+    if (gameDetailsCount.played === 4) {
+      if (gameDetailsCount.correct > gameDetailsCount.wrong) {
+        gameDetailsCount.result = "You won this set.";
+      } else if (gameDetailsCount.wrong > gameDetailsCount.correct) {
+        gameDetailsCount.result = "You lost this set.";
+      } else {
+        gameDetailsCount.result = "You tied this set.";
+      }
+      conText(gameDetailsCount.result, playGame);
+    }
+  };
+
+  function determineGameOutcome(image, clicked) {
+    if (!clicked) gameDetailsCount.comparison.push(image);
+    if (gameDetailsCount.comparison.length === 2) {
+      if (gameDetailsCount.comparison[0] === gameDetailsCount.comparison[1]) {
+        gameDetailsCount.correct += 1;
+        passDiv.innerHTML = gameDetailsCount.correct;
+      } else {
+        gameDetailsCount.wrong += 1;
+        failDiv.innerHTML = gameDetailsCount.wrong;
+      }
+      gameDetailsCount.played += 1;
+      gameDetailsCount.comparison = [];
+    }
+  }
 }
 
-genImg("entImgBox1", allClicked[0]);
-genImg("entImgBox2", allClicked[1]);
-genImg("entImgBox3", allClicked[2]);
-genImg("entImgBox4", allClicked[3]);
-genImg("entImgBox5", allClicked[4]);
-genImg("entImgBox6", allClicked[5]);
-genImg("entImgBox7", allClicked[6]);
-genImg("entImgBox8", allClicked[7]);
-genImg("entImgBox9", allClicked[8]);
+playGame();
