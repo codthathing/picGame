@@ -61,12 +61,13 @@ let picDetails = [
   },
 ];
 // sessionStorage.clear();
-function conText(words, calFunction) {
+function conText(words, calFunction, showCancelIcon = false) {
   document.getElementById("introDiv").classList.add("showIntroDiv");
   document.getElementById("introTextDiv").classList.add("showIntroTextDiv");
+  document.getElementById("cancel-icon").style.display = showCancelIcon ? "block" : "none";
 
   let countLetter = 1;
-  const target = document.getElementById("introTextDiv");
+  const target = document.getElementById("introTextParagraph");
 
   target.setAttribute("style", "color: " + "black");
   const addLetterInterval = setInterval(() => {
@@ -75,11 +76,17 @@ function conText(words, calFunction) {
       countLetter += 1;
     } else {
       clearInterval(addLetterInterval);
-      setTimeout(() => {
-        document.getElementById("introDiv").classList.remove("showIntroDiv");
-        calFunction();
-      }, 1000);
-    }
+      if(showCancelIcon) {
+        document.getElementById("cancel-icon").addEventListener("click", () => {
+          document.getElementById("introDiv").classList.remove("showIntroDiv");   
+          calFunction();       
+        })
+      } else {
+        setTimeout(() => {
+          document.getElementById("introDiv").classList.remove("showIntroDiv");
+        }, 1000);
+      };
+    };
   }, 150); // The time taken to write each letter, symbol, and space.
 }
 
@@ -146,7 +153,7 @@ function playGame() {
       } else {
         gameDetailsCount.result = "You tied this set.";
       }
-      conText(gameDetailsCount.result, playGame);
+      conText(gameDetailsCount.result, playGame, true);
     }
   };
 
